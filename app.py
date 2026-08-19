@@ -150,7 +150,7 @@ def parse_program(text):
     for b in blocks: expanded.append(b)
     # Add an informational cycle list separately; actual roughing is generated from contour
     cycles=[]
-    for idx,s,d in rawblocks:
+    for idx,s,d,_state in rawblocks:
         gs=[int(v) for L,v in words(s) if L=="G"]
         if 71 in gs and "P" in d and "Q" in d:
             cycles.append({"type":"G71","line":idx+1,"P":int(d["P"]),"Q":int(d["Q"]),"U":d.get("U",0),"W":d.get("W",0),"R":d.get("R",0)})
